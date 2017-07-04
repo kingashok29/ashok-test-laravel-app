@@ -116,6 +116,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+      'email' => 'E-Mail address',
+      'ref_username' => 'Refer Username',
+      'agree' => 'Agree',
+    ],
 
 ];

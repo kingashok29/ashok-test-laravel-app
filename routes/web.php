@@ -90,6 +90,12 @@ Route::group(['prefix' => 'BackEndPanel', 'middleware' => ['auth', 'admin']], fu
 
 });
 
+//Activation controller.
+Route::group(['middleware' => 'guest'], function() {
+  Route::get('/users/{token}/activate-account', 'ActivationController@verifyEmail')->name('verify.email');
+  Route::get('/users/{username}/resend-activation-email', 'ActivationController@resendEmail')->name('resend.email');
+});
+
 //Profile and dashboard routes.
 Route::group(['middleware' => 'auth'], function() {
   Route::get('/home', 'ProfileController@index')->name('dashboard');

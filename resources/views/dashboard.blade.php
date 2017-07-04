@@ -68,28 +68,54 @@
     </div>
   </div>
 
-  <!-- If user purchased any plan -->
+  @if(!$plans->count())
+  <!-- If user didn't subscribed any plan, show message to subscribe -->
+    <div class="well no-plan text-center">
+      <h3>No plan found!</h3>
+      <p>Go ahead, check our plans and deposit to start earning money.</p>
+    </div>
+  <!-- End showing message -->
+  @else
+  <!-- If user subscribed any plan, show info here -->
 
-    <div class="well well-plan">
-      <h3> Earn 10% daily </h3>
-      <h5> Earn 10% daily for 10 days. </h5>
-      <p>You purchased this plan on 25th June 2017 and this plan will expire on 25th July 2017.</p>
+  <h2>My plans </h2>
+  <p>List of all subscribed plans with all important information.</p>
 
-        <div class="user-plan-details">
-          <li>Investment - $250</li>
-          <li>Total profit - 150% ($350)</li>
+    @foreach($plans as $plan)
+      <div class="well well-lg user_plan">
+        <h3 class="plan__name">
+          Name - {{ $plan->plan_name }}
+        </h3>
+
+        <p class="plan__info">
+          Plan Information - {{ $plan->plan_info }}
+        </p><br>
+
+        <p>
+
+          You subscribed this plan <b>{{ $plan->pivot->created_at->diffForHumans() }}</b>,
+          total amount deposited by you for this plan is <b>${{ $plan->pivot->amount }}</b>,
+          this plan will expire on
+            <b>{{ Carbon\Carbon::parse($plan->pivot->created_at)->addDays($plan->plan_duration)->toFormattedDateString() }}</b>,
+          as well you will receive total amount
+            <b>${{ $plan->pivot->amount * $plan->daily_profit / 100 * $plan->plan_duration }}</b>
+          back after plan expire.
+
+        </p>
+
+        <div class="plan__status">
+          @if($plan->pivot->status == 'pending')
+            <button class="btn btn-md btn-warning">Current status - Pending </button>
+          @elseif($plan->pivot->status == 'expired')
+            <button class="btn btn-md btn-danger">Current status - Expired </button>
+          @else
+            <button class="btn btn-md btn-primary">Current status - Active </button>
+          @endif
         </div>
-    </div>
 
-  <!-- End showing user plans -->
-
-    <div class="no-plan well text-center">
-      <h3>Sorry but it looks like you didn't purchased any plan yet :( </h3>
-      <p>Go ahead and see our awesome <a href="#">plans</a> thanks!</p>
-    </div>
-
-  <!-- If user didn't purchased any plan yet -->
-
-  <!-- End message to purchase -->
+      </div>
+    @endforeach
+  <!-- End showing plan -->
+  @endif
 
 @endsection

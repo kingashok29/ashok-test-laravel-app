@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use App\Events\SendActivationToken;
+
 class RegisterController extends Controller
 {
     /*
@@ -49,7 +51,8 @@ class RegisterController extends Controller
             'username' => 'required|string|min:3|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:5',
-            'ref_username' => 'nullable|exists:users,username'
+            'ref_username' => 'nullable|exists:users,username',
+            'agree' => 'agree',
         ]);
     }
 
@@ -66,14 +69,26 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'user_role' => 'user',
-            'ref_username' => $data['ref_username']
+            'ref_username' => $data['ref_username'],
+            'agree' => 'agree',
+
+            'activation_token' => str_random(65),
         ]);
 
       }
 
       protected function registered($user) {
 
-          return redirect()->route('dashboard')->withInfo('Your account successfully created, thanks for joining us.');
+          $user = Auth::user();
+
+          //Fire an event to send verification email.
+          event(new SendActivationToken($user, $user->activation_token));
+
+          //Log out user.
+          Auth::logout();
+
+          return redirect()->route('login')
+                           ->withInfo('Your account successfully created, Please check your email to verify account.');
 
     }
 

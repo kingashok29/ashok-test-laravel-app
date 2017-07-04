@@ -23,7 +23,11 @@
                 <li>Daily profit - {{ $p->daily_profit }}%</li>
               </ul>
             </div>
-            <a href="{{ route('deposit.new') }}" role="button" class="btn btn-block btn-info">Select this plan</a>
+            @if(Auth::check())
+              <a href="{{ route('deposit.new', Auth::user()->id) }}" role="button" class="btn btn-block btn-info">Select this plan</a>
+            @else
+              <button type="button" class="btn btn-block btn-sm btn-info">Login to choose plan</button>
+            @endif
         </div>
       @endforeach
     </div>

@@ -19,7 +19,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'username', 'email', 'paypal_email', 'neteller_email',
         'skrill_email','password','about', 'profile_pic', 'ref_username',
-        'user_role', 'block', 'last_logged_in'
+        'user_role', 'block', 'last_logged_in', 'agree', 'verified', 'activation_token',
     ];
 
     protected $dates = ['last_logged_in'];
@@ -53,8 +53,9 @@ class User extends Authenticatable
       return $this->hasMany(Commission::class);
     }
 
+    //Showing user model of given plan
     public function plans() {
-      return $this->hasMany(UserPlan::class);
+      return $this->belongsToMany(Plan::class, 'user_plan', 'user_id', 'plan_id')->withTimestamps()->withPivot('amount', 'status');
     }
 
 }

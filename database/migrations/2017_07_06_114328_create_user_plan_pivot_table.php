@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserPlansTable extends Migration
+class CreateUserPlanPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateUserPlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_plans', function (Blueprint $table) {
+        Schema::create('user_plan', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id');
             $table->integer('plan_id');
 
             $table->decimal('amount', 10, 2);
+            $table->enum('status', ['pending', 'active', 'expired']);
 
             $table->timestamps();
         });
@@ -32,6 +33,6 @@ class CreateUserPlansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_plans');
+        Schema::dropIfExists('user_plan');
     }
 }

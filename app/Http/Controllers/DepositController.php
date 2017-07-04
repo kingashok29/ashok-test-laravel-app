@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Deposit;
 use App\Plan;
+use App\UserPlan;
 use Auth;
 
 use App\AdminSetting;
@@ -14,7 +15,12 @@ use Illuminate\Http\Request;
 
 class DepositController extends Controller {
 
+    /**
+     * Send all plans on deposit form.
+     */
+
     public function create() {
+        //Here AdminSetting model will return the email address of site payment methods.
         $plans = Plan::all();
         $setting = AdminSetting::first();
         return view('finance.deposit', compact('plans', 'setting'));
@@ -24,9 +30,8 @@ class DepositController extends Controller {
     public function store(Request $request, $id)  {
 
         $or_user = User::findOrFail($id);
-        $user = Auth::user();
 
-        if($user->id !== $or_user->id) {
+        if (Auth::user()->id !== $or_user->id) {
           return redirect()->route('dashboard')->withWarning('One more bad attempt and your account will be blocked, thanks :)');
         }
 
@@ -36,7 +41,8 @@ class DepositController extends Controller {
           'email' => 'required|email',
           'transaction_id' => 'required',
           'screenshot' => 'file|image',
-          'remark' => 'nullable|min:10'
+          'remark' => 'nullable|min:10',
+          'plan_id' => 'required',
         ]);
 
         if ($request->hasFile('screenshot')) {
@@ -47,6 +53,7 @@ class DepositController extends Controller {
 
         Auth::user()->deposits()->create([
           'amount' => $request->amount,
+          'plan_id' => $request->plan_id,
           'transaction_id' => $request->transaction_id,
           'payment_method' => $request->payment_method,
           'email' => $request->email,
@@ -54,14 +61,24 @@ class DepositController extends Controller {
           'remark' => $request->remark
         ]);
 
-        return redirect()->route('deposit.new')->withSuccess('Your deposit request submitted successfully. Check history page for request status');
+        //Inserting record in user plan pivot table.
+        Auth::user()->plans()
+                    ->attach($request->plan_id, array('amount' => $request->amount, 'status' => 'pending'));
+
+        //Redirecting user to transaction history page.
+        return redirect()->route('history.all')
+                         ->withSuccess('Your deposit request submitted successfully. Check history page for request status');
     }
 
       public function approve($id) {
         $deposit = Deposit::findOrFail($id);
+
         $deposit->update([
           'status' => true,
         ]);
+
+
+
         return redirect()->route('pending.deposits')->withSuccess('Deposit request approved and fund added into user account.');
       }
 
@@ -82,6 +99,7 @@ class DepositController extends Controller {
 
         $user->deposits()->create([
           'transaction_id' => $request->transaction_id,
+          'plan_id' => $request->plan_id,
           'amount' => $request->amount,
           'payment_method' => $request->payment_method,
           'email' => $request->email,

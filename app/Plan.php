@@ -12,7 +12,9 @@ class Plan extends Model
       'ending_amount', 'daily_profit', 'status'
     ];
 
+
+    //Belongs to many relationship help to show user's their plans.
     public function user() {
-      return $this->belongsTo(User::class);
+      return $this->belongsToMany(User::class);
     }
 }

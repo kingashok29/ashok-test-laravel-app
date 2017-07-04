@@ -18,15 +18,23 @@ class CreateUsersTable extends Migration
 
             $table->string('name');
             $table->string('username');
+
             $table->string('ref_username')->nullable();
             $table->enum('user_role', ['user', 'admin']);
+
+            $table->string('activation_token', 100)->nullable();
+            $table->boolean('verified')->default(false);
+
             $table->string('email')->unique();
             $table->string('paypal_email')->unique()->nullable();
             $table->string('skrill_email')->unique()->nullable();
             $table->string('neteller_email')->unique()->nullable();
             $table->string('bitcoin_address', 100)->unique()->nullable();
+
             $table->string('profile_pic')->nullable();
             $table->text('about')->nullable();
+
+            $table->string('agree');
 
             $table->boolean('block')->default(false);
             $table->timestamp('last_logged_in')->nullable();

@@ -2,10 +2,6 @@
 @section('title', 'Login into your account')
 @section('content')
 
-<div class="alert alert-notification">
-  <strong>information -</strong> Old users also have to create new account, sorry for inconvenient.
-</div>
-
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
@@ -64,5 +60,9 @@
                     </form>
                 </div>
             </div>
+
+            <!-- <div class="alert alert-notification">
+              <strong>information -</strong> Old users also have to create new account, sorry for inconvenient.
+            </div> -->
 
 @endsection

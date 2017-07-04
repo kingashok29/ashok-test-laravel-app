@@ -27,7 +27,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                             <label for="username" class="col-md-4 control-label">Username</label>
 
                             <div class="col-md-6">
@@ -59,7 +59,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" value="{{ old('ref_username') }}" placeholder="•••••" required>
+                                <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="•••••" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -69,11 +69,11 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('ref_username') ? ' has-error' : '' }}">
                             <label for="ref_username" class="col-md-4 control-label">Who referred you?</label>
 
                             <div class="col-md-6">
-                                <input id="ref_username" type="text" class="form-control" name="ref_username" placeholder="Enter username of who referred to signup.">
+                                <input id="ref_username" type="text" class="form-control" name="ref_username" placeholder="Enter username of who referred to signup." value="{{ old('ref_username') }}">
 
                                 <span class="help-block">** Type the username of who reffered you to signup, if no one reffered to signup then leave blank.</span>
 
@@ -83,6 +83,22 @@
                                     </span>
                                 @endif
                             </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('agree') ? ' has-error' : '' }}">
+                          <label for="agree" class="control-label col-md-4"> </label>
+                          <div class="col-md-6">
+                            <input type="checkbox" value="agree" id="agree">
+                              I read all Rules, FAQs, Terms, Privacy policy available on this website and I fully agree
+                              that Forex trading involve high risk and I'm investing my money on my own risk.
+
+                              @if ($errors->has('agree'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('agree') }}</strong>
+                                  </span>
+                              @endif
+
+                          </div>
                         </div>
 
                         <div class="form-group">
@@ -96,6 +112,5 @@
                     </form>
                 </div>
             </div>
-        </div>
 
 @endsection

@@ -30,8 +30,8 @@
     {{ csrf_field() }}
     <div class="form-group">
       <div class="col-md-10">
-        <label for="user_plan">Select Plan: ( <a href="{{ route('plans.view-all') }}">view all</a> )</label>
-        <select class="form-control" name="user_plan" id="user_plan">
+        <label for="plan_id">Select Plan: ( <a href="{{ route('plans.view-all') }}">view all</a> )</label>
+        <select class="form-control" name="plan_id" id="plan_id">
             <option value="">-- Select one plan --</option>
             @if(!$plans->count())
               <option value=""> -- No plans in database --</option>

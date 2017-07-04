@@ -17,9 +17,11 @@ class ProfileController extends Controller {
     public function index()
     {
         $user = Auth::user();
+        $plans = $user->plans()->get();
+
         $profile_pic = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $user->email ) ) ) . "&s=" . "100";
 
-        return view('dashboard', compact('user', 'profile_pic'));
+        return view('dashboard', compact('user', 'profile_pic', 'plans'));
     }
 
     /**
