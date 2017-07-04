@@ -66,7 +66,7 @@ class WithdrawalController extends Controller
           'message' => $request->message
         ]);
 
-        return redirect()->route('withdraw.new')->withSuccess('Your withdrawal request submitted, please check history page for status.');
+        return redirect()->route('withdraw.new', Auth::user()->id)->withSuccess('Your withdrawal request submitted, please check history page for status.');
     }
 
     public function approve(Request $request, $id) {

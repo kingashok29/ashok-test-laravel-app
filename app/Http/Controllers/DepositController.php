@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Deposit;
 use App\Plan;
+use App\UserPlan;
 use Auth;
 
 use App\AdminSetting;
@@ -54,7 +55,12 @@ class DepositController extends Controller {
           'remark' => $request->remark
         ]);
 
-        return redirect()->route('deposit.new')->withSuccess('Your deposit request submitted successfully. Check history page for request status');
+        Auth::user()->plans()->create([
+          'plan_id' => $request->user_plan,
+          'amount' => $request->amount,
+        ]);
+
+        return redirect()->route('deposit.new', Auth::user()->id)->withSuccess('Your deposit request submitted successfully. Check history page for request status');
     }
 
       public function approve($id) {

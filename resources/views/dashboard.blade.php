@@ -68,27 +68,8 @@
     </div>
   </div>
 
-  <!-- If user purchased any plan -->
 
-    <div class="well well-plan">
-      <h3> Earn 10% daily </h3>
-      <h5> Earn 10% daily for 10 days. </h5>
-      <p>You purchased this plan on 25th June 2017 and this plan will expire on 25th July 2017.</p>
 
-        <div class="user-plan-details">
-          <li>Investment - $250</li>
-          <li>Total profit - 150% ($350)</li>
-        </div>
-    </div>
-
-  <!-- End showing user plans -->
-
-    <div class="no-plan well text-center">
-      <h3>Sorry but it looks like you didn't purchased any plan yet :( </h3>
-      <p>Go ahead and see our awesome <a href="#">plans</a> thanks!</p>
-    </div>
-
-  <!-- If user didn't purchased any plan yet -->
 
   <!-- End message to purchase -->
 
