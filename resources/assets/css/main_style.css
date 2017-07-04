@@ -1,0 +1,520 @@
+html, body {
+  min-height: 100%;
+  height: auto !important;
+}
+
+#app {
+  height: 100%;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  height: 100px;
+  padding: 20px;
+  margin-bottom: -5px;
+  background-color: #560764;
+
+}
+
+@media only screen and (max-width:400px) {
+  .footer p, .footer .dev-note {
+    font-size: 0.8em;
+  }
+
+  .ref-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.footer .dev-note {
+  font-size: 0.9em;
+}
+
+.footer li {
+  list-style-type: none;
+}
+
+.footer p, .footer li, .footer {
+  color: white;
+}
+
+.footer a {
+  color: white;
+  text-decoration: underline;
+}
+
+/*
+ Custom notification style.
+ */
+
+.alert-notification {
+  padding: 10px;
+  border-radius: 0px 3px 3px 0px;
+  border-left: 3px solid crimson;
+  color: white;
+  background-color: #b8cbb8;
+  background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+  background-image: -webkit-linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+  background-image: -o-linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+  background-image: -moz-linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+}
+
+/*
+ Profit calculation well style
+ */
+
+.profit-result {
+  color: #0E3047;
+  line-height: 1.6em;
+  font-size: 1.2em;
+  border: 3px solid #0E3047;
+}
+
+/*
+  News container
+ */
+
+.news-container {
+  border: 2px solid #080957;
+}
+
+#newsModal .time {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: grey;
+}
+
+.news-container .no-news {
+  text-align: center;
+}
+
+.no-news h3 {
+  font-size: 1.4em;
+  color: #FD6378;
+}
+
+.no-news p {
+  font-size: 0.9em;
+  color: #880E4F;
+}
+
+/*
+  Form custom design
+ */
+
+form label {
+  font-weight: lighter;
+  color: #2E3B3E;
+}
+
+/*
+  User menu and admin menu styles
+ */
+.user-menu {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.site-menu li {
+  list-style-type: none;
+  font-size: 1.3em;
+  color: #2A363B;
+}
+
+.site-menu .panel-heading {
+  color: white;
+}
+
+.site-menu li a, .site-menu li a:hover {
+  text-decoration: none;
+}
+
+.site-list-item li {
+  margin-bottom: 3px;
+  list-style-type: none;
+  padding: 5px;
+  transition: all 200ms ease-in-out;
+}
+
+.site-list-item li:hover {
+  background-color: grey;
+  color: white;
+}
+
+/*
+  Balance and help container on main site.
+ */
+
+.balance-container, .help-container {
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #71ADB5;
+}
+
+.help-container a, .help-container a:hover {
+  text-decoration: none;
+}
+
+.balance-container {
+  border: 2px solid #71ADB5;
+  transition: all 200ms ease;
+}
+
+.payment-container {
+  border: 2px solid #631357;
+  transition: all 200ms ease;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.payment-container:hover {
+  border: 2px solid #71ADB5;
+}
+
+/*
+  Admin login container style
+ */
+
+.admin-container {
+  background-color: #0C8282;
+  margin:10px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  color: white;
+}
+
+.admin-container a {
+  color: white;
+  text-decoration: none;
+}
+
+.admin-container h3 {
+  font-weight: lighter;
+}
+
+/*
+  Balance container style
+ */
+
+.balance-container:hover {
+  background-color: #5A3662;
+  border: 2px solid #5A3662;
+  color: #fff;
+}
+
+.balance-container:hover .help-block {
+  color: white;
+}
+
+.balance-container .balance {
+  font-size: 2.3em;
+}
+
+/*
+  Profile page style.
+ */
+
+.profile-container {
+  display: flex;
+  flex-direction: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+/*
+  Typography styles.
+ */
+
+h4 {
+  font-weight: lighter;
+  text-decoration: underline;
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-weight: bold;
+  color: #631357;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-weight: lighter;
+  color: #631357;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.1em;
+  letter-spacing: 0.002em;
+  word-spacing: 0.01em;
+  color: #3E3E3E;
+  font-weight: lighter;
+}
+
+li {
+  font-size: 1.05em;
+  letter-spacing: 0.002em;
+  word-spacing: 0.01em;
+  color: #3E3E3E;
+  font-weight: lighter;
+}
+
+h5 {
+  font-weight: lighter !important;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  font-size: 1.3em;
+  line-height: 1.32em;
+  word-spacing: 0.05em;
+}
+
+/*
+  User plans on profile styles.
+ */
+
+.no-plan {
+  border: 3px solid #C62727;
+  color: #EF9037;
+}
+
+.no-plan h3 {
+  font-weight: 500;
+}
+
+.well-plan {
+  border: 3px solid #151680;
+  list-style-type: none;
+}
+
+.well-plan .user-plan-details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.well-plan .user-plan-details li {
+  background-color: #2A014B;
+  color: white;
+  border-radius: 3px;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+/*
+  Custom table design
+ */
+
+.custom-table tr {
+  margin: 2%;
+  padding: 3%;
+  transition: all 300ms ease-in-out;
+  width: 100%;
+}
+
+.custom-table tr:hover {
+  background-color: #769FCD;
+  color: #E7EED2;
+  z-index: 999;
+  transform: scale(1.01);
+}
+
+.custom-table td {
+  padding: 3%;
+}
+
+.table {
+  border: 1px solid #6a11cb;
+}
+
+.table thead {
+  font-weight: lighter;
+  background-color: #6a11cb;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background-image: -webkit-linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background-image: -o-linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background-image: -moz-linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: white;
+}
+
+/*
+  Jumbotron
+ */
+.jumbotron {
+  background-color: #dcb0ed;
+  background-image: -webkit-linear-gradient(-20deg, #dcb0ed 0%, #99c99c 100%);
+  background-image: -moz-linear-gradient(-20deg, #dcb0ed 0%, #99c99c 100%);
+  background-image: -o-linear-gradient(-20deg, #dcb0ed 0%, #99c99c 100%);
+  font-weight: lighter;
+}
+
+/*
+  Home page CTO
+ */
+.register-btn {
+  background-color: #3A0077;
+  color: white;
+  transition: all 300ms cubic-bezier(0.23, -0.76, 0.3, 1.56);
+}
+
+.register-btn:hover {
+  color: white;
+  background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+}
+
+.login-btn {
+  background-color: #4797B1;
+  color: white;
+  transition: all 300ms cubic-bezier(0.23, -0.76, 0.3, 1.56);
+}
+
+.login-btn:hover {
+  color: white;
+  background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+}
+
+/*
+  How it works page design.
+ */
+.work-main-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.work-main-container .single-container {
+  flex-basis: 46%;
+  margin: 2% 2%;
+  border: 3px solid #045757;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.work-main-container .single-container h3 {
+  font-weight: lighter;
+  color: #045757;
+}
+
+.plan-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single-plan {
+  flex-basis: 46%;
+  padding: 6px 12px;
+  margin-right: auto;
+  margin-bottom: 4%;
+  border-radius: 4px;
+  border: 2px solid #8983F3;
+}
+
+.single-plan h3 {
+  color: #432C51;
+  text-shadow: 1px 1px 1px #432C51;
+  font-weight: lighter;
+}
+
+/*
+ Support queries
+ */
+.query-container strong {
+  text-transform: uppercase;
+}
+
+.query-container h4 {
+  text-decoration: none;
+  color: #4C5374;
+  font-weight: lighter;
+  letter-spacing: normal;
+}
+
+.query-container p {
+  padding-left: 5px;
+  border-left: 3px solid #4C5374;
+}
+
+/*
+  Front end FAQs page design
+ */
+.faq-container {
+  border-radius: 4px;
+  border: 2px solid #D8CBBB;
+  background-color: #DCEDC2;
+  transition: all 0.3s ease;
+}
+
+.faq-container h3 {
+  font-weight: lighter !important;
+}
+
+.faq-container h3:before {
+  content: 'Q: ';
+  color: #9F1861;
+}
+
+.faq-container p:before {
+  content: 'A: ';
+  color: #49D292;
+}
+
+.faq-container:hover {
+  transform: scale(1.01);
+  box-sizing: border-box;
+}
+
+/*
+  Refer page style
+ */
+
+.ref-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ref-container h3 {
+  font-weight: lighter;
+}
+
+.total-refer {
+  border: 2px solid #045757;
+  background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+  flex-basis: 45%;
+}
+
+.total-commision {
+  border: 2px solid #045757;
+  flex-basis: 45%;
+  background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+}
+
+.number {
+  font-size: 2em;
+  color: #2A363B;
+}
+
+.ref-container .number, .balance {
+  font-family: 'Dosis', sans-serif;
+}
+
+/*
+  No transaction style.
+ */
+.no-transaction {
+  border: 2px solid #FFD3B5;
+}
+
+.view-user-well {
+  color: #080957;
+  border: 3px solid #080957;
+}

@@ -1,0 +1,75 @@
+
+// Body
+$body-bg: #f5f8fa;
+
+// Borders
+$laravel-border-color: #F98903;
+$list-group-border: $laravel-border-color;
+$navbar-default-border: $laravel-border-color;
+$panel-inner-border: $laravel-border-color;
+
+// Brands
+$brand-primary: #07689F;
+$brand-info: #521262;
+$brand-success: #009378;
+$brand-warning: #F1684E;
+$brand-danger: #FC345C;
+
+// Typography
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif: 'Varela Round', serif;
+
+$font-weight: 500;
+$headings-font-weight: 800;
+
+$font-size-base: 14px;
+$font-size-h1: floor(($font-size-base * 2.6));
+$font-size-h2: floor(($font-size-base * 2.15));
+$font-size-h3: floor(($font-size-base * 1.7));
+$font-size-h4: floor(($font-size-base * 1.25));
+$font-size-h5: $font-size-base;
+$font-size-h6: floor(($font-size-base * 0.86));
+
+$line-height-base: 1.7;
+$text-color: #636b6f;
+
+// Navbar
+$navbar-default-bg: #4E3188;
+$navbar-height: 75px;
+$navbar-default-link-color: #fff;
+$navbar-default-link-hover-color: #FCF4D9;
+
+// Buttons
+$btn-default-color: $text-color;
+
+// Inputs
+$input-border: lighten(#405559, 40%);
+$input-border-focus: lighten($brand-primary, 25%);
+$input-color-placeholder: lighten($text-color, 30%);
+
+// Panels
+$panel-default-heading-bg: #631357;
+$panel-default-border: #631357;
+$panel-default-text: #FBFBFB;
+
+$panel-success-heading-bg: #71ADB5;
+$panel-success-border: #71ADB5;
+
+//Alerts
+$alert-success-bg: #00AD7C;
+$alert-danger-bg: #C62727;
+$alert-warning-bg: #EA9215;
+$alert-info-bg: #6D42C7;
+
+$alert-danger-text: #F4E1E1;
+$alert-success-text: #F4E1E1;
+$alert-info-text: #FCF4D9;
+$alert-warning-text: #FFFDEF;
+
+$alert-padding: 20px;
+$alert-border-radius:7px;
+$alert-link-font-weight: bolder;
+
+
+//Table designs
+$table-bg:#FCF4D9;
