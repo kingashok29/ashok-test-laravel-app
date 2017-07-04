@@ -85,7 +85,7 @@
                 @include('partials.sidebar')
             </div>
 
-            <div class="col-lg-7 col-md-9 col-sm-12">
+            <div class="col-lg-8 col-md-9 col-sm-12">
 
               <div class="alerts">
                  <!-- Showing alert messages -->
