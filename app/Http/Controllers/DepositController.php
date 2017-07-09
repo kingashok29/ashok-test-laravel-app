@@ -61,6 +61,7 @@ class DepositController extends Controller {
           'remark' => $request->remark
         ]);
 
+<<<<<<< HEAD
         //Inserting record in user plan pivot table.
         Auth::user()->plans()
                     ->attach($request->plan_id, array('amount' => $request->amount, 'status' => 'pending'));
@@ -68,6 +69,14 @@ class DepositController extends Controller {
         //Redirecting user to transaction history page.
         return redirect()->route('history.all')
                          ->withSuccess('Your deposit request submitted successfully. Check history page for request status');
+=======
+        Auth::user()->plans()->create([
+          'plan_id' => $request->user_plan,
+          'amount' => $request->amount,
+        ]);
+
+        return redirect()->route('deposit.new', Auth::user()->id)->withSuccess('Your deposit request submitted successfully. Check history page for request status');
+>>>>>>> 93ea446df05489a8e9b3782e9b12388b07bee39b
     }
 
       public function approve($id) {

@@ -68,6 +68,7 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   @if(!$plans->count())
   <!-- If user didn't subscribed any plan, show message to subscribe -->
     <div class="well no-plan text-center">
@@ -112,6 +113,10 @@
             <button class="btn btn-md btn-primary">Current status - Active </button>
           @endif
         </div>
+=======
+
+
+>>>>>>> 93ea446df05489a8e9b3782e9b12388b07bee39b
 
       </div>
     @endforeach
